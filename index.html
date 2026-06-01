@@ -88,6 +88,64 @@
     .section-wave {
       background: #0B0F1A;
     }
+
+    /* ── TICKER STRIP ── */
+    .belle-strip {
+      background: #141929;
+      border-top: 1px solid #252D45;
+      border-bottom: 1px solid #252D45;
+      padding: 14px 0;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 4%, #000 96%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, #000 4%, #000 96%, transparent 100%);
+    }
+    .belle-strip-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+    }
+    .belle-strip-item {
+      font-size: 12.5px;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      color: #94A3B8;
+      padding: 0 28px;
+      white-space: nowrap;
+    }
+    .belle-strip-sep {
+      color: #A78BFA;
+      opacity: 0.5;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .belle-strip-item--brand {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 16px;
+      color: #A78BFA;
+      padding: 0 36px;
+    }
+
+    /* ── COMING SOON STATES ── */
+    .cs-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: #A78BFA;
+      background: rgba(167,139,250,0.1);
+      border: 1px solid rgba(167,139,250,0.25);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .cs-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #A78BFA; display: inline-block; }
+    .btn-disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body class="text-white">
@@ -173,6 +231,62 @@
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted text-xs flex flex-col items-center gap-2 animate-bounce">
       <span>scroll</span>
       <span>↓</span>
+    </div>
+  </section>
+
+  <!-- TICKER STRIP -->
+  <section class="belle-strip">
+    <div class="belle-strip-track" id="belleTrack">
+      <!-- Set 1 -->
+      <div class="belle-strip-item">45p/mile · HMRC mileage rate 2025–26</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item">Average IT contractor · £450/day</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item">Holiday pay · 12.07% of earnings</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item--brand">umbrellabelle</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item">FCSA accredited · 35 umbrella bodies</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item">Auto-enrolment · 3% employer pension minimum</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item">Inside IR35? Umbrella company required.</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item--brand">umbrellabelle</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item">Average umbrella margin · £22/week</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item">2025–26 rates · updated April 2026</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item">Rate cards · free · no login needed</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item--brand">umbrellabelle</div>
+      <span class="belle-strip-sep">☂</span>
+      <!-- Set 2 (duplicate — enables seamless loop) -->
+      <div class="belle-strip-item">45p/mile · HMRC mileage rate 2025–26</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item">Average IT contractor · £450/day</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item">Holiday pay · 12.07% of earnings</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item--brand">umbrellabelle</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item">FCSA accredited · 35 umbrella bodies</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item">Auto-enrolment · 3% employer pension minimum</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item">Inside IR35? Umbrella company required.</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item--brand">umbrellabelle</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item">Average umbrella margin · £22/week</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item">2025–26 rates · updated April 2026</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item">Rate cards · free · no login needed</div>
+      <span class="belle-strip-sep">☂</span>
+      <div class="belle-strip-item--brand">umbrellabelle</div>
+      <span class="belle-strip-sep">☂</span>
     </div>
   </section>
 
@@ -377,7 +491,7 @@
                 <span class="text-xs text-muted">Benchmark only</span>
               </div>
               <div class="text-3xl font-display font-700 text-white mb-1">~£47,200</div>
-              <div class="text-xs text-muted">Net annual · equiv. £75k PAYE salary</div>
+              <div class="text-xs text-muted">Net annual · equiv. £65k PAYE salary</div>
             </div>
           </div>
           <p class="text-muted text-xs mt-5 text-center">Illustrative · 2025–26 tax rates · full interactive calculator coming soon</p>
@@ -692,9 +806,12 @@
               Matched to the right umbrella for your risk profile
             </li>
           </ul>
-          <button class="px-8 py-4 rounded-full font-medium text-white transition-all hover:scale-105" style="background: linear-gradient(135deg, #A78BFA, #F472B6);">
-            Check My IR35 Now →
-          </button>
+          <div class="flex items-center gap-4">
+            <button class="btn-disabled px-8 py-4 rounded-full font-medium text-white" style="background: linear-gradient(135deg, #A78BFA, #F472B6);">
+              Check My IR35 →
+            </button>
+            <span class="cs-badge">Coming soon</span>
+          </div>
           <p class="text-muted text-xs mt-3">Informational only — not tax or legal advice. For borderline determinations, consult a qualified IR35 specialist.</p>
         </div>
 
@@ -803,10 +920,11 @@
 
       <div class="p-8 rounded-2xl border text-center" style="background: rgba(167,139,250,0.06); border-color: rgba(167,139,250,0.25);">
         <p class="text-soft text-sm mb-4">Recruiter agency access — launching Q3 2026</p>
-        <h3 class="font-display text-2xl font-700 text-white mb-4">Get early access to Belle for Recruiters</h3>
+        <h3 class="font-display text-2xl font-700 text-white mb-2">Get early access to Belle for Recruiters</h3>
+        <div class="flex justify-center mb-4"><span class="cs-badge">Launching Q3 2026 — register interest below</span></div>
         <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
           <input type="email" placeholder="your@agency.com" class="flex-1 px-4 py-3 rounded-full text-sm bg-surface border border-border text-soft placeholder-muted focus:outline-none focus:border-belle" />
-          <button class="px-6 py-3 rounded-full text-sm font-medium text-white whitespace-nowrap" style="background: linear-gradient(135deg, #A78BFA, #F472B6);">Join Waitlist</button>
+          <button class="btn-disabled px-6 py-3 rounded-full text-sm font-medium text-white whitespace-nowrap" style="background: linear-gradient(135deg, #A78BFA, #F472B6);">Join Waitlist</button>
         </div>
       </div>
     </div>
@@ -826,8 +944,9 @@
       <div class="text-4xl mb-6">☂</div>
       <h2 class="font-display text-4xl font-700 text-white mb-4">Belle's weekly brief</h2>
       <p class="text-soft mb-8">Umbrella compliance news, IR35 updates, and HMRC changes — curated weekly. No noise.</p>
-      <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-        <input type="email" placeholder="you@email.com" class="flex-1 px-4 py-3 rounded-full text-sm bg-surface border border-border text-soft placeholder-muted focus:outline-none focus:border-belle" />
+      <div class="flex justify-center mb-4"><span class="cs-badge">Newsletter launching soon</span></div>
+      <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto opacity-50 pointer-events-none">
+        <input type="email" placeholder="you@email.com" class="flex-1 px-4 py-3 rounded-full text-sm bg-surface border border-border text-soft placeholder-muted focus:outline-none" disabled />
         <button class="px-6 py-3 rounded-full text-sm font-medium text-white whitespace-nowrap" style="background: linear-gradient(135deg, #A78BFA, #F472B6);">Subscribe Free</button>
       </div>
       <p class="text-muted text-xs mt-4">No spam. Unsubscribe any time. Belle's agents do the reading so you don't have to.</p>
@@ -859,5 +978,32 @@
     </div>
   </footer>
 
+  <script>
+    (function () {
+      const track = document.getElementById('belleTrack');
+      if (!track) return;
+      track.style.willChange = 'transform';
+      const strip = track.closest('.belle-strip');
+      let paused = false, lastTime = null, pos = 0, setWidth = 0;
+      const SPEED = 38;
+      if (strip) {
+        strip.addEventListener('mouseenter', () => { paused = true; });
+        strip.addEventListener('mouseleave', () => { paused = false; lastTime = null; });
+      }
+      function step(ts) {
+        if (!setWidth) setWidth = track.scrollWidth / 2;
+        if (!paused) {
+          if (lastTime !== null) {
+            pos -= SPEED * ((ts - lastTime) / 1000);
+            if (pos <= -setWidth) pos += setWidth;
+            track.style.transform = `translateX(${pos}px)`;
+          }
+          lastTime = ts;
+        }
+        requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    })();
+  </script>
 </body>
 </html>
